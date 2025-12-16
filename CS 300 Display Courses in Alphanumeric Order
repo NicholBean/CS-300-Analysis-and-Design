@@ -1,0 +1,24 @@
+// Print Sorted Course List Function
+void printCourseList() {
+
+    // Ensure courses have been loaded
+    if (courseTable.empty()) {
+        cout << "Error: No courses loaded. Please load data first.\n";
+        return;
+    }
+
+    // Extract course numbers from hash table
+    vector<string> keys;
+    for (const auto& pair : courseTable) {
+        keys.push_back(pair.first);
+    }
+
+    // Sort course numbers in alphanumeric order
+    sort(keys.begin(), keys.end());
+
+    // Print sorted course list
+    cout << "Here is a sample schedule:\n";
+    for (const string& key : keys) {
+        cout << key << ", " << courseTable[key].courseTitle << endl;
+    }
+}
